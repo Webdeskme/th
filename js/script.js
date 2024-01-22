@@ -16,7 +16,7 @@ monogatari.action ('message').messages ({
 monogatari.action ('notification').notifications ({
 	'Welcome': {
 		title: 'Welcome',
-		body: 'This is the Monogatari VN Engine',
+		body: 'This is the hallowed',
 		icon: ''
 	}
 });
