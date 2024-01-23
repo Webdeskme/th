@@ -16,7 +16,7 @@ monogatari.action ('message').messages ({
 monogatari.action ('notification').notifications ({
 	'Welcome': {
 		title: 'Welcome',
-		body: 'This is the hallowed',
+		body: 'This is the Hallowed',
 		icon: ''
 	}
 });
@@ -69,7 +69,7 @@ monogatari.assets ('images', {
 
 // Define the backgrounds for each scene.
 monogatari.assets ('scenes', {
-
+	"Forest": "forest.jpg",
 });
 
 
@@ -84,7 +84,8 @@ monogatari.characters ({
 monogatari.script ({
 	// The game starts here.
 	'Start': [
-		'show scene #f7f6f6 with fadeIn',
+		//'show scene #f7f6f6 with fadeIn',
+		"show scene Forest",
 		'show notification Welcome',
 		{
 			'Input': {
@@ -110,7 +111,7 @@ monogatari.script ({
 				'Warning': 'You must enter a name!'
 			}
 		},
-		'y Hi {{player.name}} Welcome to Monogatari!',
+		'y Hi {{player.name}}. Welcome to the Hallowed!',
 		{
 			'Choice': {
 				'Dialog': 'y Have you already read some documentation?',

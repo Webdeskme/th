@@ -1,10 +1,10 @@
 {
-  "name": "my-game",
-  "productName": "My Game",
+  "name": "th",
+  "productName": "TH",
   "version": "0.1.0",
   "main": "engine/electron/index.js",
   "description": "A description of your game",
-  "author": "Your Name",
+  "author": "Adam W. Telford",
   "license": "MIT",
   "homepage": "https://example.com",
   "build": {
@@ -48,10 +48,24 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
-    "electron": "^11.3.0",
-    "electron-builder": "^22.9.1",
+    "electron": "^28.1.4",
+    "electron-builder": "^24.9.1",
     "electron-notarize": "^1.0.0",
-    "http-server": "^0.12.3",
-    "parcel": "^1.12.4"
+    "http-server": "^14.1.1",
+    "parcel": "^2.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Webdeskme/th.git"
+  },
+  "keywords": [
+    "Hallowed",
+    "Choose",
+    "Your",
+    "Own",
+    "Adventure"
+  ],
+  "bugs": {
+    "url": "https://github.com/Webdeskme/th/issues"
   }
 }
