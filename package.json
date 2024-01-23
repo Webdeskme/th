@@ -6,7 +6,7 @@
   "description": "A description of your game",
   "author": "Adam W. Telford",
   "license": "MIT",
-  "homepage": "https://example.com",
+  "homepage": "https://courageous-faun-c835ce.netlify.app/",
   "build": {
     "appId": "com.example.mygame",
     "win": {
