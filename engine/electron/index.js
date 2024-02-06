@@ -26,7 +26,7 @@ function createWindow () {
 	win = new BrowserWindow ({
 
 		// Title that will be shown in the window (Your game's title)
-		title: '',
+		title: 'The Hallowed',
 
 		// Set the minimal window size
 		minWidth: 640,
