@@ -127,7 +127,8 @@ monogatari.script ({
 				'Save': function (input) {
 					this.storage ({
 						player: {
-							name: input
+							name: input,
+							gender: 'male'
 						}
 					});
 					return true;
@@ -135,14 +136,15 @@ monogatari.script ({
 				'Revert': function () {
 					this.storage ({
 						player: {
-							name: ''
+							name: '',
+							gender: 'male'
 						}
 					});
 				},
 				'Warning': 'You must enter a name!'
 			}
 		},
-		'y Hi {{player.name}}. Welcome to the Hallowed!',
+		'y Hi {{player.name}}. Welcome to the Hallowlands!',
 		{
 			'Choice': {
 				'Dialog': 'y Now let our story unfold together.',
@@ -164,6 +166,39 @@ monogatari.script ({
 		'y There was a subtle chill on the wind of the coming long frost as the sun began to set. Tomorrow would begin a new year of studies, and although the kids were sad to know the summer was about to be over, next week would also begin one of the most exciting events of the year: The Autumnfall Harvest Festival.  ',
 		"play voice v4",
 		'y With twilight taking over as the stars began to poke through the sunset, the distant call of parents ushered their children back home. You waved goodbye to your friends as you jogged back up the road to your familiar front steps, where your mother welcomed you back in for the evening. Before long, it was time for bed… and so it was that: {{player.name}} laid down for some peaceful rest. ',
+		{
+			'Choice': {
+				'Dialog': 'y Sitting beside you, and wishing you goodnight was your father, who reminded you of an important local legend: “My sweet ...',
+				'boy': {
+					'Text': 'Boy',
+				'Do': 'jump male'
+				},
+				'girl': {
+					'Text': 'Girl',
+				'Do': 'jump female'
+				}
+			}
+		}
+	],
+	'female': [
+		{'Function':{
+            'Apply': () => {
+				monogatari.storage ({
+                    player: {
+                        gender: 'female'
+                    }
+                });
+				}}},
+				'jump male'
+	],
+	'male': [
+		{'Conditional': {
+			'Condition': function () {
+				return this.storage ('player').gender == 'female';
+			},
+			'True': 'y Its a Girl!',
+			'False': 'y Its a Boy!'
+		}},
 		'end'
-	]
+	],
 });
