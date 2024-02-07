@@ -106,6 +106,10 @@ monogatari.characters ({
 	'y': {
 		name: 'Narrator',
 		color: '#5bcaff'
+	},
+	'f': {
+		name: 'Father',
+		color: '#00ff00'
 	}
 });
 
@@ -128,7 +132,8 @@ monogatari.script ({
 					this.storage ({
 						player: {
 							name: input,
-							gender: 'male'
+							gender: 'male',
+							feel: 'brave'
 						}
 					});
 					return true;
@@ -137,7 +142,8 @@ monogatari.script ({
 					this.storage ({
 						player: {
 							name: '',
-							gender: 'male'
+							gender: 'male',
+							feel: 'brave'
 						}
 					});
 				},
@@ -166,9 +172,10 @@ monogatari.script ({
 		'y There was a subtle chill on the wind of the coming long frost as the sun began to set. Tomorrow would begin a new year of studies, and although the kids were sad to know the summer was about to be over, next week would also begin one of the most exciting events of the year: The Autumnfall Harvest Festival.  ',
 		"play voice v4",
 		'y With twilight taking over as the stars began to poke through the sunset, the distant call of parents ushered their children back home. You waved goodbye to your friends as you jogged back up the road to your familiar front steps, where your mother welcomed you back in for the evening. Before long, it was time for bed… and so it was that: {{player.name}} laid down for some peaceful rest. ',
+		'y Sitting beside you, and wishing you goodnight was your father, who reminded you of an important local legend: ',
 		{
 			'Choice': {
-				'Dialog': 'y Sitting beside you, and wishing you goodnight was your father, who reminded you of an important local legend: “My sweet ...',
+				'Dialog': 'f “My sweet ..."',
 				'boy': {
 					'Text': 'Boy',
 				'Do': 'jump male'
@@ -196,9 +203,35 @@ monogatari.script ({
 			'Condition': function () {
 				return this.storage ('player').gender == 'female';
 			},
-			'True': 'y Its a Girl!',
-			'False': 'y Its a Boy!'
+			'True': 'f My sweet girl, the time for playful summer mischief has once more come to rest, because tomorrow begins a new harvest season.',
+			'False': 'f My sweet boy, the time for playful summer mischief has once more come to rest, because tomorrow begins a new harvest season.'
 		}},
+		'f  In the many years of this little old town, there have been tales of local children lost during this time to the horrid Hallowlands…',
+		'f a place for lost little boys and girls who lost their way home and slowly turned to monsters.', 
+		'f So now is the most important time for rest!',
+		'f Have a good night sleep and get ready for a whole new year.',
+		'y He smiled as he tucked you into bed and blew out the candlelight.',
+		{
+			'Choice': {
+				'Dialog': 'y As your father closed the door to your room, you were feeling (Pick 1):',
+				'brave': {
+					'Text': 'Brave',
+				'Do': 'jump male'
+				},
+				'clever': {
+					'Text': 'Clever',
+				'Do': 'jump female'
+				},
+				'deceptive': {
+					'Text': 'Deceptive',
+				'Do': 'jump male'
+				},
+				'kindred': {
+					'Text': 'Kindred',
+				'Do': 'jump female'
+				}
+			}
+		},
 		'end'
 	],
 });
