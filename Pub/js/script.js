@@ -110,6 +110,10 @@ monogatari.characters ({
 	'f': {
 		name: 'Father',
 		color: '#00ff00'
+	},
+	'm': {
+		name: 'Mother',
+		color: '#800080'
 	}
 });
 
@@ -271,6 +275,17 @@ monogatari.script ({
 		},
 		'y You rubbed your eyes to try and focus on it, but then suddenly it was gone.',
 		'y You brush the thought of it aside, and turn over on your pillow, then swiftly drifted off.',
+		'y You wake with a rush, and beads of sweat scroll down your face! You look back and forth at your familiar childhood room in Autumna Village as the nightmare fades back to reality.',
+		'y The dreamworld still feels so vividly real, but everything you knew so well just moments ago is evaporating with every second that goes by.',
+		'y Was it even real?',
+		'y You wonder, but soon it will be as if it never happened.',
+		'y As your senses calm down and you regain control, the irresistible smell of bacon floods your nostrils as you hear your mother calling from below:',
+		'm {{player.name}} your breakfast is nearly ready!',
+		'm If you don’t come down here soon you are going to be late for school!',
+		'm I don’t want your rushing to your morning classes, so hurry up!',
+		'y You jump from the bed, ruffle your hair, and look to the closet.',
+		'y Draped from the shelf is your school uniform, freshly pressed, and resting upon the floor is your satchel.',
+		'y Everything left where you placed it the day before, your satchel should still include:',
 		'end'
 	],
 });
