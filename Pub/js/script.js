@@ -212,26 +212,33 @@ monogatari.script ({
 		'f Have a good night sleep and get ready for a whole new year.',
 		'y He smiled as he tucked you into bed and blew out the candlelight.',
 		{
-			'Choice': {
-				'Dialog': 'y As your father closed the door to your room, you were feeling (Pick 1):',
-				'brave': {
-					'Text': 'Brave',
-				'Do': 'jump male'
+			'Input': {
+				'Text': 'How are you feeling?',
+				'Validation': function (input) {
+					//return input.trim ().length > 0;
+					input = input.trim();
+					input = input.toLowerCase();
+					if(input == 'brave' || input == 'clever' || input == 'deceptive' || input == 'kindred'){
+						return true;
+						}
+					else{
+						return false;
+						}
 				},
-				'clever': {
-					'Text': 'Clever',
-				'Do': 'jump female'
+				'Save': function (input) {
+					input = input.trim();
+					input = input.toLowerCase();
+					this.storage ({
+						player: {
+							feel: input
+						}
+					});
+					return true;
 				},
-				'deceptive': {
-					'Text': 'Deceptive',
-				'Do': 'jump male'
-				},
-				'kindred': {
-					'Text': 'Kindred',
-				'Do': 'jump female'
-				}
+				'Warning': 'You must enter the item correctly!'
 			}
 		},
+		'y You are {{player.feel}}!',
 		'end'
 	],
 });
