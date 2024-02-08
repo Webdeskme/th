@@ -114,7 +114,11 @@ monogatari.characters ({
 	'm': {
 		name: 'Mother',
 		color: '#800080'
-	}
+	},
+	'me': {
+		name: 'Me',
+		color: '#FFFF00'
+	},
 });
 
 //monogatari.component ('quick-menu').removeButton ('Hide');
@@ -286,6 +290,22 @@ monogatari.script ({
 		'y You jump from the bed, ruffle your hair, and look to the closet.',
 		'y Draped from the shelf is your school uniform, freshly pressed, and resting upon the floor is your satchel.',
 		'y Everything left where you placed it the day before, your satchel should still include:',
+		'y x2 Charcoal Pencils',
+		'y x3 Pieces of Paper',
+		'y x2 Pieces of Candy',
+		'y A “History of Autumna” Textbook for class',
+		'y A “Folklore” book from the Autumna Librarium',
+		'y Shouting down to your mother, you say:',
+		'me I’m almost ready, I just need a few more minutes to get dressed and I will be right down!',
+		'y You throw on your uniform as quickly as you can, lace up your shoes, and take a moment to double check that everything is in order before you leave.',
+		'y But, before you depart your room, you have one more moment to yourself.',
+		'y What do you choose to do with this moment of extra time?',
+		'::: Tutorial, Lesson 1 ::: ',
+		'y Now it is your turn to choose what happens! In this story, you will have many opportunities to change the outcome of the narrative.',
+		'y In these important intersections, you will be prompted with a special menu that allows you to: [Use Inventory], [Investigate], [Combat/Magic], or [Interact].',
+		'y When these intersections appear, you must choose wisely, because you will typically only get one ‘turn’ to decide before the story continues.',
+		'y This leads to different branches of the Hallowland experience for many players to explore!',
+		'y Every decision is final and will continue progressing the tale!',
 		'end'
 	],
 });
