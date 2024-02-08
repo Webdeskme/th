@@ -133,7 +133,8 @@ monogatari.script ({
 						player: {
 							name: input,
 							gender: 'male',
-							feel: 'brave'
+							feel: 'brave',
+							item1: 'candle'
 						}
 					});
 					return true;
@@ -143,7 +144,8 @@ monogatari.script ({
 						player: {
 							name: '',
 							gender: 'male',
-							feel: 'brave'
+							feel: 'brave',
+							item1: 'candle'
 						}
 					});
 				},
@@ -213,7 +215,7 @@ monogatari.script ({
 		'y He smiled as he tucked you into bed and blew out the candlelight.',
 		{
 			'Input': {
-				'Text': 'How are you feeling?',
+				'Text': 'As your father closed the door to your room, you were feeling?',
 				'Validation': function (input) {
 					//return input.trim ().length > 0;
 					input = input.trim();
@@ -235,10 +237,40 @@ monogatari.script ({
 					});
 					return true;
 				},
+				'Warning': 'You must enter the feeling correctly!'
+			}
+		},
+		'y And though you could barely contain your excitement, you could also feel the weight of your eyelids growing stronger as sleep was trying to take you away once more.',
+		'y In the last moments before entering the dream, you noticed an unfamiliar object sitting upon your shelf.',
+		{
+			'Input': {
+				'Text': 'It is a ...',
+				'Validation': function (input) {
+					//return input.trim ().length > 0;
+					input = input.trim();
+					input = input.toLowerCase();
+					if(input == 'candle' || input == 'mask' || input == 'wand' || input == 'dagger' || input == 'book' || input == 'crystal' || input == 'mirror' || input == 'jar of sugar' || input == 'satchel of silver buttons' || input == 'walking staff' || input == 'slingshot ' || input == 'pocket watch' || input == 'dreamcatcher'){
+						return true;
+						}
+					else{
+						return false;
+						}
+				},
+				'Save': function (input) {
+					input = input.trim();
+					input = input.toLowerCase();
+					this.storage ({
+						player: {
+							item1: input
+						}
+					});
+					return true;
+				},
 				'Warning': 'You must enter the item correctly!'
 			}
 		},
-		'y You are {{player.feel}}!',
+		'y You rubbed your eyes to try and focus on it, but then suddenly it was gone.',
+		'y You brush the thought of it aside, and turn over on your pillow, then swiftly drifted off.',
 		'end'
 	],
 });
