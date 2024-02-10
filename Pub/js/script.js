@@ -173,15 +173,19 @@ monogatari.script ({
 	],
 
 	'init': [
-		"play voice v1",
+		//"play voice v1",
 		'y Thats awesome!',
 		"show scene Wheat",
-		"play voice v2",
-		'y All the children of the forest village Autumna had spent the last day of the summer together, playing hide and seek around the wheat fields before they were to be cut down in the weeks to come. The warmth and freedom of a completely open schedule was soon coming to an end.',
-		"play voice v3",
-		'y There was a subtle chill on the wind of the coming long frost as the sun began to set. Tomorrow would begin a new year of studies, and although the kids were sad to know the summer was about to be over, next week would also begin one of the most exciting events of the year: The Autumnfall Harvest Festival.  ',
-		"play voice v4",
-		'y With twilight taking over as the stars began to poke through the sunset, the distant call of parents ushered their children back home. You waved goodbye to your friends as you jogged back up the road to your familiar front steps, where your mother welcomed you back in for the evening. Before long, it was time for bed… and so it was that: {{player.name}} laid down for some peaceful rest. ',
+		//"play voice v2",
+		'y All the children of the forest village Autumna had spent the last day of the summer together, playing hide and seek around the wheat fields before they were to be cut down in the weeks to come.',
+		'y The warmth and freedom of a completely open schedule was soon coming to an end.',
+		//"play voice v3",
+		'y There was a subtle chill on the wind of the coming long frost as the sun began to set.',
+		'y Tomorrow would begin a new year of studies, and although the kids were sad to know the summer was about to be over, next week would also begin one of the most exciting events of the year: The Autumnfall Harvest Festival. ',
+		//"play voice v4",
+		'y With twilight taking over as the stars began to poke through the sunset, the distant call of parents ushered their children back home.',
+		'y You waved goodbye to your friends as you jogged back up the road to your familiar front steps, where your mother welcomed you back in for the evening.',
+		'y Before long, it was time for bed… and so it was that: {{player.name}} laid down for some peaceful rest. ',
 		'y Sitting beside you, and wishing you goodnight was your father, who reminded you of an important local legend: ',
 		{
 			'Choice': {
@@ -306,6 +310,83 @@ monogatari.script ({
 		'y When these intersections appear, you must choose wisely, because you will typically only get one ‘turn’ to decide before the story continues.',
 		'y This leads to different branches of the Hallowland experience for many players to explore!',
 		'y Every decision is final and will continue progressing the tale!',
-		'end'
+		{
+			'Choice': {
+				'Dialog': 'y “Since you just spoke to your mother, why don’t you try: Using Inventory, Investigating, or Interacting with something in your room to see what happens!',
+				'inventory': {
+					'Text': 'Using Inventory',
+				'Do': 'jump inventory1'
+				},
+				'investigate': {
+					'Text': 'Investigate',
+				'Do': 'jump investigate1'
+				},
+				'interact': {
+					'Text': 'Interact',
+				'Do': 'jump interact1'
+				}
+			}
+		}
 	],
+	'inventory1': [
+		{
+			'Choice': {
+				'Dialog': 'Using Inventory:',
+				'folklore': {
+					'Text': 'Folklore Book',
+				'Do': 'jump folklore'
+				},
+				'history': {
+					'Text': 'History of Autumna Book',
+				'Do': 'jump investigate1'
+				}
+			}
+		}
+	],
+	'investigate1': [
+		{
+			'Choice': {
+				'Dialog': 'Investigate: ',
+				'closet': {
+					'Text': 'Search Closet',
+				'Do': 'jump inventory1'
+				},
+				'bed': {
+					'Text': 'Search Under Bed',
+				'Do': 'jump investigate1'
+				}
+			}
+		}
+	],
+	'interact1': [
+		{
+			'Choice': {
+				'Dialog': 'Interact:',
+				'workout': {
+					'Text': 'Work Out',
+				'Do': 'jump inventory1'
+				},
+				'downstairs': {
+					'Text': 'Go Downstairs Right Away',
+				'Do': 'jump investigate1'
+				}
+			}
+		}
+	],
+	'folklore': [
+	'y Remembering that you had summer reading to do for the first day of class, you grab the library book from your satchel and flip to the table of contents for a quick browse...', 
+	"y You notice the tales are separated into different categories, things like 'Tales Old and New' 'Heroes and Legends' 'Adventures from Beyond the Woods' and 'Tales from the Hallowlands'.",
+	"y After hearing hints of the horror from your father the night before, you flip to the pages about ‘Tales from the Hallowlands’ to see if there is something more that you can learn…",
+	'y To your surprise, the chapter opens with a rhyme and a short story:',
+	'y "Tales From the Hallowlands :: Part 1 :: Sarah Porter"',
+	'y Silly Sarah Porter, will tell her tale of woe,',
+	'y Trick and Treat without a costume?',
+	'y Then to the Hallowlands you will go!',
+	'y When Sarah woke up, she thought it was a dream...',
+	"y 'How did I get here...? ... What is this place...? ...Where did I come from? How do I go back?'",
+	"y The questions came quick and scared... ‘Where am I??'",
+	"y Her heart dropped with the weight of a rock into her stomach as the nausea set in...", 
+	"y 'Why can't I remember?? ... WHY CAN'T I REMEMBER??'",
+	'end'
+	]
 });
