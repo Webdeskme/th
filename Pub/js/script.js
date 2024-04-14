@@ -166,6 +166,7 @@ monogatari.script ({
 							credenda:0,
 							chocolate:0,
 							combat: 0,
+							BlackSilkGloves: 0,
 						}
 					});
 					return true;
@@ -192,6 +193,7 @@ monogatari.script ({
 							credenda:0,
 							chocolate:0,
 							combat: 0,
+							BlackSilkGloves: 0,
 						}
 					});
 				},
@@ -614,12 +616,51 @@ monogatari.script ({
 	'jump page3'
 	],
 	'godown': [
+	{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							treatomancy: 1,
+							BlackSilkGloves: 1
+						}
+					});
+				}
+		}
+	},
 	'y Not wanting to upset your mother or be late for the first day of school, you quickly get up and take a moment to tidy before beginning your big day.',
 	'y After getting dressed and combing your hair you take one last second to look yourself over in the mirror and make sure that any imperfections are taken care of.',
 	'y When you are finally ready, you come downstairs into the main room of your home and make your way over to the kitchen.',
 	'y You catch the last moment before your father walks out the front door, and now your mother is the only one there at the moment.',
 	"y She invites you to sit with her and eat, then points out how great it has been to enjoy everyone's company during the morning routine.",
-	'end'
+	'y Relieved that you came downstairs relatively quickly after being asked, your mother decides to reward you with a little gift.',
+	'y She points out the sleek and silk black gloves on the edge of the counter and says:',
+	"m You know I was going to wear those to work today with the sudden chill in the air, but why don't you take them with you today instead?",
+	"m You're wearing even less than I am and it is starting to get chilly out there!",
+	'y You are flattered by the offer from your mother and can hardly wait to put them on.',
+	'y In your head you are thinking to yourself what an honor it is to be gifted your mother’s favorite gloves, and you are certain to treasure them.',
+	'y Turning back to her after placing them on your hands, you thank her tremendously and come back to the table to finish your breakfast.',
+	'<b>(+1 point in Treatomancy)</b>',
+	'<b>(+1 pair of Black Silk Gloves)</b>',
+	'y You now have {{player.treatomancy}} treatomancy & {{player.BlackSilkGloves}} pair of Black Silk Gloves {{player.name}}.',
+	'<b>:: Tutorial Ends ::</b>',
+	'y Before you can finish eating and escape from the table for school, your mother starts asking you what your plans are for after class, and if you are expecting to go to the Harvest Festival with friends.',
+	{
+			'Choice': {
+				'Dialog': 'y What do you decide to say?',
+				'yes': {
+					'Text': 'YES',
+				'Do': 'jump page3-1'
+				},
+				'no': {
+					'Text': 'No',
+				'Do': 'jump page3-2'
+				},
+				'ask': {
+					'Text': 'Ask Permission',
+				'Do': 'jump page3-3'
+				}
+			}
+		}
 	],
 	'page3': [
 	'y After taking the time in your room to do what you need to get ready for the day, you come downstairs into the main room of the house.',
@@ -630,6 +671,146 @@ monogatari.script ({
 	'm I’m sure that you know the Autumna Harvest Festival begins later today… ',
 	'm Did you have plans to go with anyone?',
 	'y You take a moment to finish your bite and contemplate your answer.',
-	'end'
+	{
+			'Choice': {
+				'Dialog': 'y What do you decide to say?',
+				'yes': {
+					'Text': 'YES',
+				'Do': 'jump page3-1'
+				},
+				'no': {
+					'Text': 'No',
+				'Do': 'jump page3-2'
+				},
+				'ask': {
+					'Text': 'Ask Permission',
+				'Do': 'jump page3-3'
+				}
+			}
+		}
+	],
+	'page3-1': [
+	'me Yes',
+	'y you say to your mother,',
+	'me I am meeting up with some friends...',
+	'y With a bit of a sigh under her breath, your mother responds:',
+	"m Well be sure to stay safe out there, I don't know what I would do if something ever happened to you!",
+	'y -- She laughs nervously and grabs her things as she heads out the door for work. ',
+	'y From here you gather your own things as well and prepare to leave for school.',
+	'y As you have done every day for years, you go down to the end of the road and start following the path along the edge of the woods.',
+	'y The familiar smells and look of the Harvest Season flood your mind with nostalgia as the cool wind whisks through your hair.',
+	"y Approaching closer to the center of the town, you notice people of the village putting together the tents and stands for this evening's celebration.",
+	'y You see the fine lanterns, the pumpkin gardeners carving away, and all the costume designers setting up shop with their clothes and masks.',
+	'y Despite knowing that you should go to school without distraction, you struggle with the desire to explore the fairgrounds and the harvest season delights of the ancient town...',
+	'y The choice is up to you...',
+	{
+			'Choice': {
+				'Dialog': 'y so what do you decide to do?',
+				'town': {
+					'Text': 'Go to Town',
+				'Do': 'jump page4'
+				},
+				'class': {
+					'Text': 'Continue to Class',
+				'Do': 'jump page5'
+				}
+			}
+		}
+	],
+	'page3-2': [
+	'me No',
+	'y you say to your mother,',
+	'me I dont know anyone who wants to go yet, but I would like to go...',
+	'y With a subtle grin appearing upon her face, your mother replies:',
+	'm Well hurry home from school today, because when you get home we should stop by as a family to check it out!',
+	'y  -- She grabs her things and leaves for work.',
+	'm Love you, see you later Sweetie!',
+	'y From here you gather your own things as well and prepare to leave for school.',
+	'y As you have done every day for years, you go down to the end of the road and start following the path along the edge of the woods.',
+	'y The familiar smells and look of the Harvest Season flood your mind with nostalgia as the cool wind whisks through your hair.',
+	"y Approaching closer to the center of the town, you notice people of the village putting together the tents and stands for this evening's celebration.",
+	'y You see the fine lanterns, the pumpkin gardeners carving away, and all the costume designers setting up shop with their clothes and masks.',
+	'y Despite knowing that you should go to school without distraction, you struggle with the desire to explore the fairgrounds and the harvest season delights of the ancient town...',
+	'y The choice is up to you...',
+	{
+			'Choice': {
+				'Dialog': 'so what do you decide to do?',
+				'town': {
+					'Text': 'Go to Town',
+				'Do': 'jump page4'
+				},
+				'class': {
+					'Text': 'Continue to Class',
+				'Do': 'jump page5'
+				}
+			}
+		}
+	],
+	'page3-3': [
+	'me Would it be ok if I went to the festival with some friends mom? I have never gotten to go by myself before...',
+	'y A bit taken back by your response here, your mother stops to think for a moment before giving her response:',
+	'm I am just sad that you’re getting so grown up now...',
+	'm oh how the time flies by.',
+	'm Just yesterday we were holding hands and walking the fairgrounds together.',
+	"m I can't believe those times have already passed so quickly.",
+	"m Just be sure to stay safe out there, I don't know what I would do if something happened!",
+	'y -- She grabs her things as she heads out the door for work as well, but decides to hand you one last treat on her way out...',
+	'm I Love You Darling, see you after the festival tonight!',
+	{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							chocolate: 1
+						}
+					});
+				}
+		}
+	},
+	'y From here you gather your own things as well and prepare to leave for school.',
+	'y As you have done every day for years, you go down to the end of the road and start following the path along the edge of the woods.',
+	'y The familiar smells and look of the Harvest Season flood your mind with nostalgia as the cool wind whisks through your hair.',
+	"y Approaching closer to the center of the town, you notice people of the village putting together the tents and stands for this evening's celebration.",
+	'y You see the fine lanterns, the pumpkin gardeners carving away, and all the costume designers setting up shop with their clothes and masks.',
+	'y Despite knowing that you should go to school without distraction, you struggle with the desire to explore the fairgrounds and the harvest season delights of the ancient town...',
+	'The choice is up to you...',
+	{
+			'Choice': {
+				'Dialog': 'so what do you decide to do?',
+				'town': {
+					'Text': 'Go to Town',
+				'Do': 'jump page4'
+				},
+				'class': {
+					'Text': 'Continue to Class',
+				'Do': 'jump page5'
+				}
+			}
+		}
+	],
+	'page4': [
+		'y Completely failing to resist temptation, you put school on hold for a moment to go and investigate the fairgrounds.',
+		'y There are a variety of different tents and booths being set up across the main sections of town.',
+		'y The edge of town closest to your house is where the Market District starts, and the fairgrounds stretch all along the main gardens of town until the lawn of the Town Librarium.',
+		'y Between these two major buildings there are currently five Harvest Festival shops nearly ready for business, whose signs read:',
+		't "Cloak and Dagger :: Costumes from all the Lands"',
+		't "Costume and Kimera :: Masks and Accessories"',
+		't "Jack of all Pumpkins :: Carvers from Every Patch"',
+		't "Trick or Treat Sweets :: Candies from Round the World!"',
+		't "A Lantern for your Thoughts? :: Bring Light to Life"',
+		"y Knowing that you really shouldn't waste too much time, you decide to visit only one of the shops for now and scurry back towards class.",
+		'y This way you can hopefully avoid confrontation for being late.',
+		{
+			'Choice': {
+				'Dialog': 'But with so many good options, which of the shops do you choose?',
+				'town': {
+					'Text': 'Go to Town',
+				'Do': 'jump page4'
+				},
+				'class': {
+					'Text': 'Continue to Class',
+				'Do': 'jump page5'
+				}
+			}
+		}
 	]
 });
