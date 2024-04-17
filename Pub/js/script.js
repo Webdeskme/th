@@ -127,6 +127,14 @@ monogatari.characters ({
 		name: 'Text',
 		color: '#8B6914'
 	},
+	'man': {
+		name: 'Man',
+		color: '#8B6914'
+	},
+	'woman': {
+		name: 'Woman',
+		color: '#8B6914'
+	},
 });
 
 //monogatari.component ('quick-menu').removeButton ('Hide');
@@ -167,6 +175,22 @@ monogatari.script ({
 							chocolate:0,
 							combat: 0,
 							BlackSilkGloves: 0,
+							BlackCloak: 0,
+							CurvedStick: 0,
+							Rope: 0,
+							CalicoMarble: 0,
+							CatEars: 0,
+							FoxEars: 0,
+							PointedNoseMask: 0,
+							SerpentTail: 0,
+							PetitPumpkin: 0,
+							SmallCarvingKnife: 0,
+							PumpkoniMarble: 0,
+							PumpkinSeeds: 0,
+							RawSugarJar: 0,
+							CandyRocks: 0,
+							BrokenLantern: 0,
+							cloakery: 0,
 						}
 					});
 					return true;
@@ -194,6 +218,22 @@ monogatari.script ({
 							chocolate:0,
 							combat: 0,
 							BlackSilkGloves: 0,
+							BlackCloak: 0,
+							CurvedStick: 0,
+							Rope: 0,
+							CalicoMarble: 0,
+							CatEars: 0,
+							FoxEars: 0,
+							PointedNoseMask: 0,
+							SerpentTail: 0,
+							PetitPumpkin: 0,
+							SmallCarvingKnife: 0,
+							PumpkoniMarble: 0,
+							PumpkinSeeds: 0,
+							RawSugarJar: 0,
+							CandyRocks: 0,
+							BrokenLantern: 0,
+							cloakery: 0,
 						}
 					});
 				},
@@ -802,15 +842,668 @@ monogatari.script ({
 		{
 			'Choice': {
 				'Dialog': 'But with so many good options, which of the shops do you choose?',
-				'town': {
-					'Text': 'Go to Town',
-				'Do': 'jump page4'
+				'cloak': {
+					'Text': 'Cloak & Dagger',
+				'Do': 'jump page4-1'
 				},
-				'class': {
-					'Text': 'Continue to Class',
-				'Do': 'jump page5'
+				'costume': {
+					'Text': 'Costume & Kimera',
+				'Do': 'jump page4-2'
+				},
+				'jack': {
+					'Text': 'Jack of all Pumpkins',
+				'Do': 'jump page4-3'
+				},
+				'trick': {
+					'Text': 'Trick or Treat Sweets',
+				'Do': 'jump page4-4'
+				},
+				'lantern': {
+					'Text': 'A Lantern for your thoughts?',
+				'Do': 'jump page4-5'
 				}
 			}
 		}
+	],
+	'page4-1': [
+		'y You nervously walk up to the tent titled: "Cloak and Dagger" and see the man who appears to be in charge of the business.',
+		'y He walks over, gives you the eye for a moment and then says:',
+		"man Aren't ye a little young to be walkin' the fairgrounds by yerself? Aren't ye supposed to be in school?",
+		"y Feeling bold you look him in the eyes and tell him that you are on your way to school, but that you simply couldn't resist looking at the shops on your way to class.",
+		'y You explain that you wanted to be the first of your friends who got something cool from the shops this year.',
+		'y The old shopkeep laughs and says:',
+		"t Well i'm not quite set up for shop yet mefriend! but why don't you take a peek at these trinkets here and pick somethin' nice out for yerself?",
+		't Then make sure to brag about it so that all yer’ friends come to see me again.',
+		'y he says with a wink.',
+		{
+			'Choice': {
+				'Dialog': 'Choose One',
+				'cloak': {
+					'Text': 'Black Cloak',
+				'Do': 'jump cloak4-1'
+				},
+				'costume': {
+					'Text': 'Curved Stick',
+				'Do': 'jump stick4-1'
+				},
+				'jack': {
+					'Text': 'Rope',
+				'Do': 'jump rope4-1'
+				},
+				'trick': {
+					'Text': 'Calico Marble',
+				'Do': 'jump marble4-1'
+				}
+			}
+		}
+	],
+	"cloak4-1": [
+		'y +1 Black Cloak',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							BlackCloak: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-1b'
+	],
+	"stick4-1": [
+		'y +1 Black Cloak',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							CurvedStick: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-1b'
+	],
+	"rope4-1": [
+		'y +1 Black Cloak',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							Rope: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-1b'
+	],
+	"marble4-1": [
+		'y +1 Black Cloak',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							CalicoMarble: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-1b'
+	],
+	"page4-1b": [
+		'y After selecting your special treat, your heart races with excitement as you remember how late you are for class.',
+		'y You thank the kind shop keeper again and run back to the path you were originally on.',
+		'jump page6'
+	],
+	'page4-2': [
+		'y You nervously walk up to the tent titled: "Costume and Kimera" and see the woman who seems to be in charge of the business.',
+		'y She walks over, gives you the eye for a moment and then says:',
+		'woman Well, whats a little scholar like you doing so far from the classroom right now?',
+		"y Feeling bold you look her in the eyes and tell her that you are on your way to school, but that you simply couldn't resist looking at the shops on your way to class.",
+		'y You explain that you wanted to be the first of your friends who got something cool from the shops this year.',
+		'y The old witch laughs and says:',
+		"woman Well i'm not quite set up for shop yet my friend! but why don't you take a peek at these trinkets here and pick somethin' nice out for yerself?",
+		'woman Don’t go tellin’ anyone that I gave it to ye for free though.',
+		'y She says with a crooked smile.',
+		{
+			'Choice': {
+				'Dialog': 'Choose One',
+				'cat': {
+					'Text': 'Cat Ears',
+				'Do': 'jump cat4-2'
+				},
+				'fox': {
+					'Text': 'Fox Ears',
+				'Do': 'jump fox4-2'
+				},
+				'mask': {
+					'Text': 'Pointed Nose Mask',
+				'Do': 'jump mask4-2'
+				},
+				'surpent': {
+					'Text': 'Serpent Tail',
+				'Do': 'jump serpent4-2'
+				}
+			}
+		}
+	],
+	"cat4-2": [
+		'y +1 Cat Ears',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							CatEars: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-2b'
+	],
+	"fox4-2": [
+		'y +1 Fox Ears',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							FoxEars: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-2b'
+	],
+	"mask4-2": [
+		'y +1 Pointed Nose Mask',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							PointedNoseMask: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-2b'
+	],
+	"serpent4-2": [
+		'y +1 Serpent Tail',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							SerpentTail: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-2b'
+	],
+	"page4-2b": [
+		'y After selecting your special treat, your heart races with excitement as you remember how late you are for class.',
+		'y You thank the kind shopkeeper again and run back to the path you were originally on.',
+		'jump page6'
+	],
+	'page4-3': [
+		'y You nervously walk up to the tent titled: "Jack of all Pumpkins" and see the man who seems to overseeing the business carving an exquisite picture onto a pumpkin.',
+		'y He walks over, gives you the eye for a moment and then says:',
+		'man Well, what brings a child like you across my path right now?',
+		"man It's a little early in the day to be excited about pumpkins, they are much more amazing in the dark!",
+		"y Feeling bold you look him in the eyes and tell him that you are on your way to school, but that you simply couldn't resist looking at the shops on your way to class.",
+		'y You explain that you wanted to be the first of your friends who got something from the shops this year.',
+		'y The old man laughs and says:',
+		"man Well i'm not quite set up for shop yet my friend! But if you don't tell anyone, I will let you have one of the things in this basket here:",
+		{
+			'Choice': {
+				'Dialog': 'Choose One',
+				'petit': {
+					'Text': 'Petit Pumpkin',
+				'Do': 'jump petit4-3'
+				},
+				'knife': {
+					'Text': 'Small Carving Knife',
+				'Do': 'jump knife4-3'
+				},
+				'marble': {
+					'Text': 'Pumpkoni Marble',
+				'Do': 'jump marble4-3'
+				},
+				'seeds': {
+					'Text': 'Pumpkin Seeds',
+				'Do': 'jump seeds4-3'
+				}
+			}
+		}
+	],
+	"petit4-3": [
+		'y +1 Petit Pumpkin',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							PetitPumpkin: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-3b'
+	],
+	"knife4-3": [
+		'y +1 Small Carving Knife',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							SmallCarvingKnife: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-3b'
+	],
+	"marble4-3": [
+		'y +1 Pumpkoni Marble',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							PumpkoniMarble: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-3b'
+	],
+	"seeds4-3": [
+		'y +1 Pumpkin Seeds',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							PumpkinSeeds: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-3b'
+	],
+	"page4-3b": [
+		'y After selecting your special treat, your heart races with excitement as you remember how late you are for class.',
+		'y You thank the kind shopkeeper again and run back to the path you were originally on.',
+		'jump page6'
+	],
+	'page4-4': [
+		'y You nervously walk up to the tent titled: "Trick or Treat Sweets?" and see the old witch who seems to be in charge of the business.',
+		'y She walks over, gives you the eye for a moment and then says:',
+		"woman Well well well, if we haven't got yet another student skipping class for sweats eh?",
+		"y Feeling bold you look her in the eyes and tell her that you are on your way to school, but that you simply couldn't resist looking at the shops on your way to class.",
+		'y You explain that you wanted to be the first of your friends who got something cool from the shops this year.',
+		'y The old witch cackles and says:',
+		"woman Well I'm certain of one thing, even though I don't typically like children, I like your gumption kid...",
+		"woman I wouldn't normally reward your behavior, but I am in a special mood today, so why don't you pick out a little treat for now and be sure to tell all your little friends!",
+		"woman Just be ready for their jealousy!",
+		'y She winks and offers you a basket with:',
+		{
+			'Choice': {
+				'Dialog': 'Choose One',
+				'Chocolate': {
+					'Text': 'Chocolate',
+				'Do': 'jump Chocolate4-4'
+				},
+				'sugar': {
+					'Text': 'Raw Sugar Jar',
+				'Do': 'jump sugar4-4'
+				},
+				'candy': {
+					'Text': 'Bag of Candy Rocks',
+				'Do': 'jump candy4-4'
+				},
+				'seeds': {
+					'Text': 'Pumpkin Seeds ',
+				'Do': 'jump seeds4-4'
+				}
+			}
+		}
+	],
+	"Chocolate4-4": [
+		'y +1 Chocolate',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							chocolate: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-4b'
+	],
+	"sugar4-4": [
+		'y +1 Raw Sugar Jar',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							RawSugarJar: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-4b'
+	],
+	"candy4-4": [
+		'y +1 Bag of Candy Rocks',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							CandyRocks: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-4b'
+	],
+	"seeds4-4": [
+		'y +1 Pumpkin Seeds',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							PumpkinSeeds: 1
+						}
+					});
+				}
+		}
+	},
+	'jump page4-4b'
+	],
+	"page4-4b": [
+		'y After receiving your special treat, your heart races with excitement as you remember how late you are for class.',
+		'y You thank the kind shopkeep again and run back to the path you were originally on.',
+		'jump page6'
+	],
+	"page4-5": [
+		'y You nervously walk up to the tent titled: _"A Lantern for your Thoughts?"_ and see the old man who seems to be in charge of the business hanging a variety of lanterns around his shop.',
+		'y He walks over, gives you the eye for a moment and then says:',
+		'man Well, what brings a child like you across my path right now?',
+		"man It's a little early in the day to be excited about lanterns, they are much more amazing in the dark!",
+		"y Feeling bold you look him in the eyes and tell him that you are on your way to school, but that you simply couldn't resist taking a look at the shops on your way to class.",
+		'y You explain that you wanted to be the first of your friends who got something from the shops this year.',
+		'y The old man laughs and says:',
+		"man Well I'm not quite set up for shop yet my friend! But if you don't tell anyone, I will teach you a valuable secret:",
+		"man There are a variety of lanterns in the world my friend, and they always have a story of their own to tell.",
+		"man Every lantern has a piece of it's maker in it, and every maker has a style to their lantern.",
+		"man Sometimes the lantern is a signal of welcome: inviting people to your presence in the dark.",
+		"man Sometimes, it is a sign of warning alerting friends of predators. In other ways a lantern can be a signal of safety, a guiding light to a better place.",
+		"man But no matter where or why a lantern may be, it is always there for a reason.",
+		"man Remember this and the lights will always guide your path.",
+		"y The lantern crafter smiles at your curious enthusiasm for his story, and he looks around the shop for a moment.",
+		"y Grabbing something, he looks back at you and says:",
+		"man This lantern is unfortunately broken for now but could be repaired with a little bit of love.",
+		"man Why don't you take this and see if you can fix it up, bringing your own lantern to life?",
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							BrokenLantern: 1,
+							trickery: 1
+						}
+					});
+				}
+			}
+		},
+		'<b>(+1 Broken Lantern)</b>',
+		'<b>(+1 Point in Trickery)</b>',
+		'y After receiving your special treat, your heart races with excitement as you remember how late you are for class.',
+		'y You thank the kind shopkeep again and run back to the path you were originally on.',
+		'jump page6'
+	],
+	"page5": [
+		'y Deciding not to fall to temptation you turn away from the fairgrounds and continue along the path towards the school.',
+		'<b>(+1 Point in Treatomancy)</b>',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							treatomancy: 1
+						}
+					});
+				}
+			}
+		},
+		'y Due to the arrangement of the fairgrounds taking over the town, you end up needing to take a path that loops through the woods.',
+		"y While the wooded path is slightly creepier and out of the way, it is not a path you haven't taken before.",
+		"y You feel a slight bit of concern in your gut from the creepy story that your father shared with you the night before but decide to push forward anyway.",
+		"y As you make your way into the fringe of the Autumna Forest, a mysterious looking man with a large pack on his back comes into view.",
+		"y He is walking towards the town, presumably to set up shop at the fairgrounds.",
+		"y As he is about to walk by, he changes his stance and looks over to you:",
+		"man Excuse me young scholar, perchance is the town with the Autumn Festival up ahead?",
+		"man I have been traveling for many days and nights and thought I would have found it by now!",
+		"y Feeling a bit more charismatic than usual, you make a joke about the mysterious nature of these woods and how no one can ever find their way.",
+		"y But then you do tell him that the place he is looking for is in fact just ahead.",
+		"y He thanks you for the advice, and offers you a small trinket from amongst his wares for the assistance.",
+		"y When he unfolds a cloth, he says that you should have one of the interesting items he will sell later on during the festivities:",
+		'jump page6'
+	],
+	"page6": [
+		'y You continue to walk away from the town into the mysterious wooded detour on your way to class still.',
+		'y Though you know that it has only been about five minutes since leaving your home, it feels more and more that you have been on the road for longer than that.',
+		'y A small bit of panic sets in as you feel the initial essence of being lost, but you try to push it aside.',
+		'y Delving further along brings more anxiety with every bend and turn in the path.',
+		'y You quickly begin to lose your calm as fear sets in that you have somehow made a mistake...',
+		'y you know these woods; you know how easy it can be to get turned around and lost for days...',
+		'y they are thick and intimidating woods.',
+		'y Before taking even a moment to concoct a better plan, you begin jogging back towards the way you think you came from.',
+		'y Dodging tree after tree, hoping desperately for a familiar landmark or path, your run continues.',
+		'y Then finally, a sight for sore eyes: you come around one more wooded glen as a cabin becomes visible in the thicket.',
+		"y It does not seem familiar to any house you have encountered in the Autumna Forest before, but there are a great number of places you haven't found in Autumna Village before either, so this isn't much of a surprise.",
+		'y With the possibility of getting some guidance back out of the forest and into the right direction you begin to consider the most logical path.',
+		'y Not quite sure how to best approach the house though, you consider the following courses of action:',
+		{
+			'Choice': {
+				'Dialog': 'Choose One',
+				'Search': {
+					'Text': 'Search',
+				'Do': 'jump Search6'
+				},
+				'Sneak': {
+					'Text': 'Sneak',
+				'Do': 'jump Sneak6'
+				},
+				'Knock': {
+					'Text': 'Knock',
+				'Do': 'jump Knock6'
+				},
+				'Ignore': {
+					'Text': 'Ignore',
+				'Do': 'jump Ignore6'
+				}
+			}
+		}
+	],
+	"Search6": [
+		'y You walk with some caution up to the edge of the house and approach the window.',
+		"y Looking it over, it doesn't seem to be all that different from any other house you have encountered before.",
+		"y It is the typical Autumna Log Cabin style build common to the forested areas of town.",
+		"y You approach a window and give a glance to the inside.",
+		"y It seems likely that someone might be home because there is some light visible from the window, so you make your way over to the door, which to your surprise is already ajar…",
+		'y With apprehension, you stare in through the open door to the cabin, which suddenly seems emptier and more abandoned than it did from the outside.',
+		'y You offer a weak:',
+		'me Hello?',
+		'y into the foyer, but no one answers.',
+		'y Taking another moment to investigate, you try once more:',
+		'me Hellllooo?',
+		'y but your attempt once again falls on absent ears.',
+		'y Considering your options, you realize that it is the cabin or the woods...',
+		'y so you step foot into the cabin, still hopeful that there may be something to help you in here.',
+		'y Upon entering, you begin noticing some warmer details of the interior: there are all sorts of interesting paintings lining the walls, a floor sized carpet with antiquated designs, a nice hardwood table, and a small wooden desk.',
+		'y The desk captures your attention because it is the only place in the room with stuff scattered on top of it.',
+		'y Looking amongst the items on the desk, you see some trinkets, basic jewelry, a few coins, and an ornate hand-carved personal hand mirror.',
+		'y For whatever reason, your entire being cannot avoid picking up this mirror, and looking deep into its mysterious glass.',
+		'y As anyone would, you inspect your own face, studying all your flaws when suddenly you watch in horror as your face turns into that of a cat’s face.',
+		'y You drop the mirror onto the desk and start feeling your face...',
+		'y but much to your surprise it still feels like skin, and all the fur you just watched grow seems to be gone... ',
+		'<b>(+1 Point in Credenda)</b>',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							credenda: 1
+						}
+					});
+				}
+			}
+		},
+		'y With the panic subsiding a bit, you nervously pick up the mirror hoping for happier news than what you just witnessed.',
+		'y Unfortunately, it seems upon further inspection that the mirror was badly cracked upon hitting the table.',
+		"y In this moment you remember that you are in someone's house still, and what more, you have broken their things...",
+		'y guilt overcoming you, you decide that it is time to leave. '
+	],
+	"Sneak6": [
+		'y You walk with some caution up to the edge of the house and approach the window.',
+		"y Looking it over, it doesn't seem to be all that different from any other house you have encountered before.",
+		'y It is the typical Autumna Log Cabin style build common to the forested areas of town.',
+		'y So you sneakily approach one of the windows, making sure to not let yourself be visible before leaning up to peek inside.',
+		'y It seems that there is the shape of a person walking around on the inside, placing something on a table near the fireplace.',
+		'y Excited to see life on the inside you make your way over to the door, which is mysteriously already ajar...',
+		'<b>(+1 Point in Cloakery)</b>',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							cloakery: 1
+						}
+					});
+				}
+			}
+		},
+		'y With apprehension you stare in through the open door to the cabin, which suddenly seems emptier and more abandoned than it did from the outside.',
+		'y You offer a weak:',
+		'me Hello?',
+		'y into the foyer, but no one answers. Taking another moment to investigate, you try once more:',
+		'me Hellllooo?',
+		'y but your attempt once again falls on absent ears.',
+		"y Considering your options, you realize that it is the cabin or the woods...",
+		'y so you step foot into the cabin, still hopeful that there may be something to help you in here.',
+		'y Upon entering, you begin noticing some warmer details of the interior:',
+		'y there are all sorts of interesting paintings lining the walls, a floor sized carpet with antiquated designs, a nice hardwood table, and a small wooden desk.',
+		'y The desk captures your attention because it is the only place in the room with stuff scattered on top of it.',
+		'y Looking amongst the items on the desk, you see some trinkets, basic jewelry, a few coins, and an ornate hand-carved personal hand mirror.',
+		'y For whatever reason, your entire being cannot avoid picking up this mirror, and looking deep into its mysterious glass.',
+		'y  As anyone would, you inspect your own face, studying all your flaws when suddenly you watch in horror as your face turns into that of a cat’s face.',
+		'y You drop the mirror onto the desk and start feeling your face...',
+		'y but much to your surprise it still feels like skin, and all the fur you just watched grow seems to be gone...',
+		'<b>(+1 Point in Credenda)</b>',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							credenda: 1
+						}
+					});
+				}
+			}
+		},
+		'y With the panic subsiding a bit, you nervously pick up the mirror hoping for happier news than what you just witnessed.',
+		'y Unfortunately, it seems upon further inspection that the mirror was badly cracked upon hitting the table.',
+		"y In this moment you remember that you are in someone's house still, and what more, you have broken their things...",
+		'y guilt overcoming you, you decide that it is time to leave.',
+	],
+	"Knock6": [
+		'y You walk with some caution up to the edge of the house and approach the front door.',
+		'y As you do so, you glance up toward the sky and feel like it has become much later in the day than seems right for having only recently left for school.',
+		'y It suddenly feels like sunset is much closer than it should be, and you wonder what is going on with this strange day.',
+		"y Looking over the cabin again, it doesn't seem to be all that different from any other house you have encountered before, yet for some reason you've never come across this particular house...",
+		"y So, you give a stereotypical 'Knock' 'Knock' 'Knock' to see if someone will greet you.",
+		'y On the third knock no one answers, but the door creaks open with that hair raising creaking sound of wood against wood.',
+		'y While it seems as if it might be wrong to enter, you don’t know where else to go, so you try to be brave and find someone to help.',
+		'y With apprehension you stare in through the open door to the cabin, which suddenly seems emptier and more abandoned than it did from the outside.',
+		'y You offer a weak:',
+		'me Hello?',
+		'y into the foyer, but no one answers. Taking another moment to investigate, you try once more:',
+		'me Hellllooo?',
+		'y but your attempt once again falls on absent ears.',
+		'y Considering your options, you realize that it is the cabin or the woods...',
+		'y so you step foot into the cabin, still hopeful that there may be something to help you in here.',
+		'y Upon entering, you begin noticing some warmer details of the interior:',
+		'y there are all sorts of interesting paintings lining the walls, a floor sized carpet with antiquated designs, a nice hardwood table, and a small wooden desk.',
+		'y The desk captures your attention because it is the only place in the room with stuff scattered on top of it.',
+		'y Looking amongst the items on the desk, you see some trinkets, basic jewelry, a few coins, and an ornate hand-carved personal hand mirror.',
+		'y For whatever reason, your entire being cannot avoid picking up this mirror, and looking deep into its mysterious glass.',
+		'y As anyone would, you inspect your own face, studying all your flaws when suddenly you watch in horror as your face turns into that of a cat’s face.',
+		'y You drop the mirror onto the desk and start feeling your face...',
+		'y but much to your surprise it still feels like skin, and all the fur you just watched grow seems to be gone...',
+		'<b>(+1 Point in Credenda)</b>',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							credenda: 1
+						}
+					});
+				}
+			}
+		},
+		'y With the panic subsiding a bit, you nervously pick up the mirror hoping for happier news than what you just witnessed.',
+		'y Unfortunately, it seems upon further inspection that the mirror was badly cracked upon hitting the table.',
+		"y In this moment you remember that you are in someone's house still, and what more, you have broken their things...",
+		'y guilt overcoming you, you decide that it is time to leave.',
+	],
+	"Ignore6": [
+		"y You decide that it is not polite to be rummaging around in people's business and you attempt to find your way on the wooded path once more...",
+		'y After about five minutes of walking around, you feel some reassurance that you have made the right choice in the matter.',
+		'me There are only so many paths through these woods',
+		'y you think to yourself as you push some more leaves and branches out of the way...',
+		"me I can't be lost forever",
+		'y ... but then your heart sinks to the bottom of your stomach as you see the exact same cabin appear in the thicket ahead of you once more.',
+		'y Horrified at the sight of it, you once again approach and decide to try seeing if someone is home.',
+		'y Adding much more to the feeling of horror in your mind, the door is already cracked open...',
+		'y With apprehension you stare in through the open door to the cabin, which suddenly seems emptier and more abandoned than it did from the outside.',
+		'y You offer a weak:',
+		'me Hello?',
+		'y into the foyer, but no one answers.',
+		'y Taking another moment to investigate, you try once more:',
+		'me Hellllooo?',
+		'y but your attempt once again falls on absent ears.',
+		'y Considering your options, you realize that it is the cabin or the woods...',
+		'y so you step foot into the cabin, still hopeful that there may be something to help you in here.',
+		'y Upon entering, you begin noticing some warmer details of the interior:',
+		'y there are all sorts of interesting paintings lining the walls, a floor sized carpet with antiquated designs, a nice hardwood table, and a small wooden desk.',
+		'y The desk captures your attention because it is the only place in the room with stuff scattered on top of it.',
+		'y Looking amongst the items on the desk, you see some trinkets, basic jewelry, a few coins, and an ornate hand-carved personal hand mirror.',
+		'y For whatever reason, your entire being cannot avoid picking up this mirror, and looking deep into its mysterious glass.',
+		'y As anyone would, you inspect your own face, studying all your flaws when suddenly you watch in horror as your face turns into that of a cat’s face.',
+		'y You drop the mirror onto the desk and start feeling your face...',
+		'y but much to your surprise it still feels like skin, and all the fur you just watched grow seems to be gone... ',
+		'<b>(+1 Point in Credenda)</b>',
+		{'Function':{
+            'Apply': () => {
+					monogatari.storage ({
+						player: {
+							credenda: 1
+						}
+					});
+				}
+			}
+		},
+		'y With the panic subsiding a bit, you nervously pick up the mirror hoping for happier news than what you just witnessed.',
+		'y Unfortunately, it seems upon further inspection that the mirror was badly cracked upon hitting the table.',
+		"y In this moment you remember that you are in someone's house still, and what more, you have broken their things...",
+		'y guilt overcoming you, you decide that it is time to leave.',
 	]
 });
